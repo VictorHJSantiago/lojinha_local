@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Nossos Produtos</h1>
+    <div class="row">
+        {% for produto in produtos %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                {% set image_url = url_for('static', filename='uploads/' + produto.imagem) if produto.imagem else url_for('static', filename='uploads/default.jpg') %}
+                <img src="{{ image_url }}" class="card-img-top" alt="{{ produto.nome }}" style="height: 200px; object-fit: cover;">
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{ produto.nome }}</h5>
+                    <p class="card-text">{{ produto.descricao or 'Sem descrição.' }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{{ url_for('add_to_cart', id=produto.id) }}" class="btn btn-sm btn-outline-primary">Adicionar ao Carrinho</a>
+                            <a href="{{ url_for('update_produto', id=produto.id) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                            <a href="{{ url_for('delete_produto', id=produto.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Tem certeza que deseja excluir este produto?')">Excluir</a>
+                        </div>
+                        <strong class="text-muted">R$ {{ "%.2f"|format(produto.preco) }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col">
+            <p>Nenhum produto cadastrado no momento. <a href="{{ url_for('add_produto') }}">Adicione o primeiro!</a></p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

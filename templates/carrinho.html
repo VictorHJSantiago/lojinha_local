@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Meu Carrinho - {{ super() }}{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Meu Carrinho</h1>
+    {% if display_cart %}
+    <table class="table table-hover align-middle">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th class="text-center">Quantidade</th>
+                <th class="text-end">Preço Unitário</th>
+                <th class="text-end">Subtotal</th>
+                <th class="text-center">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, item in display_cart.items() %}
+            <tr>
+                <td>{{ item.nome }}</td>
+                <td class="text-center">{{ item.quantidade }}</td>
+                <td class="text-end">R$ {{ "%.2f"|format(item.preco) }}</td>
+                <td class="text-end">R$ {{ "%.2f"|format(item.subtotal) }}</td>
+                <td class="text-center">
+                    <a href="{{ url_for('remove_from_cart', id=id) }}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Total</strong></td>
+                <td class="text-end fs-5"><strong>R$ {{ "%.2f"|format(total) }}</strong></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="d-flex justify-content-end mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary me-2">Continuar Comprando</a>
+        <a href="{{ url_for('checkout') }}" class="btn btn-success">Finalizar Compra</a>
+    </div>
+    {% else %}
+        <p>Seu carrinho está vazio. <a href="{{ url_for('index') }}">Comece a comprar!</a></p>
+    {% endif %}
+{% endblock %}

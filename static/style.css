@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa; 
+}
+
+main.container {
+    flex: 1 0 auto;
+}
+
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important;
+}
+
+.card .text-muted {
+    font-size: 1.1rem;
+    color: #28a745 !important; 
+    font-weight: bold;
+}
+
+.table th {
+    background-color: #e9ecef;
+}
+
+.table.align-middle td, .table.align-middle th {
+    vertical-align: middle;
+}
+
+
+.pedido-sucesso-icon {
+    font-size: 4rem;
+    color: #28a745;
+}
+
+
+footer.footer {
+    flex-shrink: 0;
+    padding: 1rem 0;
+    background-color: #e9ecef;
+}

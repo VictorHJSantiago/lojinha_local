@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout - {{ super() }}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Finalizar Compra</h1>
+<div class="row g-5">
+    <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Resumo do Pedido</span>
+        </h4>
+        <ul class="list-group mb-3">
+            {% for id, item in display_order.items() %}
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                    <h6 class="my-0">{{ item.nome }}</h6>
+                    <small class="text-muted">Quantidade: {{ item.quantidade }}</small>
+                </div>
+            </li>
+            {% endfor %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Total (BRL)</span>
+                <strong>R$ {{ "%.2f"|format(total) }}</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Seus Dados</h4>
+        <form action="{{ url_for('checkout') }}" method="POST" class="needs-validation">
+            {{ form.hidden_tag() }}
+            <div class="row g-3">
+                <div class="col-12">
+                    {{ form.nomeCompleto.label(class="form-label") }}
+                    {{ form.nomeCompleto(class="form-control" + (" is-invalid" if form.nomeCompleto.errors else "")) }}
+                    {% for error in form.nomeCompleto.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="col-12">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="voce@exemplo.com") }}
+                    {% for error in form.email.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="col-12">
+                    {{ form.endereco.label(class="form-label") }}
+                    {{ form.endereco(class="form-control" + (" is-invalid" if form.endereco.errors else ""), placeholder="Rua, número e bairro") }}
+                    {% for error in form.endereco.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr class="my-4">
+            {{ form.submit(class="w-100 btn btn-primary btn-lg") }}
+        </form>
+    </div>
+</div>
+{% endblock %}

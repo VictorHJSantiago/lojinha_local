@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Produto - {{ super() }}{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Editar Produto: {{ produto.nome }}</h1>
+    <form method="POST" action="{{ url_for('update_produto', id=produto.id) }}" enctype="multipart/form-data">
+        {{ form.hidden_tag() }} <div class="mb-3">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control" + (" is-invalid" if form.nome.errors else "")) }}
+            {% for error in form.nome.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <div class="mb-3">
+            {{ form.descricao.label(class="form-label") }}
+            {{ form.descricao(class="form-control" + (" is-invalid" if form.descricao.errors else ""), rows="3") }}
+            {% for error in form.descricao.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <div class="mb-3">
+            {{ form.preco.label(class="form-label") }}
+            {{ form.preco(class="form-control" + (" is-invalid" if form.preco.errors else "")) }}
+            {% for error in form.preco.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <div class="mb-3">
+            {{ form.imagem.label(class="form-label") }}
+            {{ form.imagem(class="form-control" + (" is-invalid" if form.imagem.errors else "")) }}
+            {% for error in form.imagem.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+            <small class="form-text text-muted">Deixe em branco para manter a imagem atual.</small>
+        </div>
+        
+        {{ form.submit_update(class="btn btn-primary") }}
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

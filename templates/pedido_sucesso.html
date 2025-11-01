@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Pedido Confirmado - {{ super() }}{% endblock %}
+
+{% block content %}
+    <div class="py-5 text-center">
+        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+        <h1 class="display-5 mt-3">Obrigado pela sua compra!</h1>
+        <p class="lead">Seu pedido foi recebido e está sendo processado.</p>
+        <hr>
+        <p>
+            Em caso de dúvidas, entre em contato com nosso suporte.
+        </p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Voltar para a Página Inicial</a>
+    </div>
+{% endblock %}
