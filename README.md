@@ -1,0 +1,1 @@
+# lojinha_local
