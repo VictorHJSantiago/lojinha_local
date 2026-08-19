@@ -1,491 +1,1053 @@
 <div align="center">
 
-<img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Lojinha Local Logo" width="110" />
+**🌐 Choose Language / Selecione o Idioma / Elija el Idioma**
 
-# 🛒 Lojinha Local
-
-### Documentación de Ingeniería de Software & Sistema de E-commerce
-
-Una aplicación full-stack de e-commerce construida con **Python, Flask, SQLAlchemy y Flask-Bcrypt**, documentada de extremo a extremo siguiendo los clásicos artefactos de Ingeniería de Software (Requisitos, UML, Modelado de Datos, DFD, UX).
-
-![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![Status](https://img.shields.io/badge/Status-En%20Progreso-yellow?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-
-### 🌐 Choose Language / Selecione o idioma / Elija su idioma
-
-[![English](https://img.shields.io/badge/ENGLISH-README.MD-blue?style=for-the-badge)](./README.md)
-[![Português](https://img.shields.io/badge/PORTUGU%C3%8AS-README__PT.MD-green?style=for-the-badge)](./README_PT.md)
-[![Español](https://img.shields.io/badge/ESPAÑOL-ACTUAL-yellow?style=for-the-badge)](./README_ES.md)
+[![🇺🇸 English](https://img.shields.io/badge/🇺🇸%20English-README.md-005CA5?style=for-the-badge)](README.md)&nbsp;&nbsp;&nbsp;[![🇧🇷 Português](https://img.shields.io/badge/🇧🇷%20Português-README__PT.md-009C3B?style=for-the-badge)](README_PT.md)&nbsp;&nbsp;&nbsp;[![🇪🇸 Español](https://img.shields.io/badge/🇪🇸%20Español-Actual-C60B1E?style=for-the-badge)](README_ES.md)
 
 </div>
 
 ---
 
-## 📖 Acerca del Proyecto
+<div align="center">
 
-> **Lojinha Local** es una aplicación web full-stack que simula una pequeña tienda local: catálogo, carrito de compras y checkout, además de un panel autenticado para gestionar productos.
+```
+██╗      ██████╗      ██╗██╗███╗   ██╗██╗  ██╗ █████╗
+██║     ██╔═══██╗     ██║██║████╗  ██║██║  ██║██╔══██╗
+██║     ██║   ██║     ██║██║██╔██╗ ██║███████║███████║
+██║     ██║   ██║██   ██║██║██║╚██╗██║██╔══██║██╔══██║
+███████╗╚██████╔╝╚█████╔╝██║██║ ╚████║██║  ██║██║  ██║
+╚══════╝ ╚═════╝  ╚════╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝
+       Una pequeña tienda local construida con Flask
+```
 
-Este README es el **centro de documentación de ingeniería** del proyecto. Sigue una estructura clásica de documentación de Ingeniería de Software — requisitos, casos de uso, diagramas UML, modelado de datos, flujo de datos, arquitectura y artefactos de UX — construida alrededor de la implementación real (Flask + SQLAlchemy + SQLite).
+---
 
-> 🚧 **Estado:** Las secciones **1. Requisitos** y **2. Casos de Uso** están completamente redactadas. Las demás secciones (3–10) están estructuradas y se completarán de forma incremental.
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-Framework-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![SQLAlchemy](https://img.shields.io/badge/Flask--SQLAlchemy-ORM-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://flask-sqlalchemy.palletsprojects.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-Base%20de%20Datos-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![WTForms](https://img.shields.io/badge/Flask--WTF-Formularios-8B5CF6?style=for-the-badge)](https://flask-wtf.readthedocs.io/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![pytest](https://img.shields.io/badge/pytest-Pruebas-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)](https://pytest.org/)
+
+<br/>
+
+> **Lojinha Local es una pequeña demo de e-commerce full-stack:**
+> catálogo, carrito y checkout para una tienda local, protegida con contraseñas con hash y sesión de login.
+
+<br/>
+
+![Rutas](https://img.shields.io/badge/Rutas%20Flask-15-3776AB?style=flat-square)
+![Modelos](https://img.shields.io/badge/Modelos%20SQLAlchemy-3-D71F00?style=flat-square)
+![Formularios](https://img.shields.io/badge/WTForms-4-8B5CF6?style=flat-square)
+![Plantillas](https://img.shields.io/badge/Plantillas%20Jinja2-9-FF6B35?style=flat-square)
+![Pruebas](https://img.shields.io/badge/Pruebas%20pytest-7-0A9EDC?style=flat-square)
+
+</div>
 
 ---
 
 ## 📑 Tabla de Contenidos
 
-| # | Sección | Estado |
-|:-:|:--------|:------:|
-| 1 | [📋 Requisitos](#1--requisitos) | ✅ |
-| 2 | [🎯 Casos de Uso](#2--casos-de-uso) | ✅ |
-| 3 | [🔗 Matriz de Trazabilidad de Requisitos](#3--matriz-de-trazabilidad-de-requisitos) | 🚧 |
-| 4 | [📄 Especificación de Requisitos de Software (SRS)](#4--especificación-de-requisitos-de-software-srs) | 🚧 |
-| 5 | [🖼️ Diagramas UML & Estructurales](#5--diagramas-uml--estructurales) | 🚧 |
-| 6 | [🗄️ Modelo de Datos & Diccionario de Datos](#6--modelo-de-datos--diccionario-de-datos) | 🚧 |
-| 7 | [🌊 Diagrama de Flujo de Datos (DFD)](#7--diagrama-de-flujo-de-datos-dfd) | 🚧 |
-| 8 | [🏗️ Diagrama de Arquitectura & Diagrama de Flujo](#8--diagrama-de-arquitectura--diagrama-de-flujo) | 🚧 |
-| 9 | [🧑 Persona & Mapa de Viaje del Usuario](#9--persona--mapa-de-viaje-del-usuario) | 🚧 |
-| 10 | [🎨 Wireframes & Mockups](#10--wireframes--mockups) | 🚧 |
-| 11 | [🚀 Instalación & Ejecución](#11--instalación--ejecución) | ✅ |
-| 12 | [👨‍💻 Autor](#12--autor) | ✅ |
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+**🏗️ Sistema**
+- [Visión General](#-visión-general)
+- [Arquitectura del Sistema](#-arquitectura-del-sistema)
+- [Stack Tecnológico](#-stack-tecnológico)
+- [Patrones de Diseño Aplicados](#-patrones-de-diseño-aplicados)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+
+**📦 Módulos**
+- [Arranque de la Aplicación](#-arranque-de-la-aplicación--apppy)
+- [Extensiones](#-extensiones--extensionspy)
+- [Modelos de Datos](#-modelos-de-datos--modelspy)
+- [Formularios](#-formularios--formspy)
+- [Rutas de Autenticación](#-rutas-de-autenticación)
+- [Rutas del Catálogo](#-rutas-del-catálogo)
+- [Rutas de Carrito & Checkout](#-rutas-de-carrito--checkout)
+- [Plantillas & Recursos Estáticos](#-plantillas--recursos-estáticos)
+
+</td>
+<td valign="top" width="50%">
+
+**💼 Negocio**
+- [Reglas de Negocio](#-reglas-de-negocio)
+- [Requisitos Funcionales](#-requisitos-funcionales)
+- [Requisitos No Funcionales](#-requisitos-no-funcionales)
+
+**📐 Diseño**
+- [Modelo de Datos](#-modelo-de-datos)
+- [Flujos del Sistema](#-flujos-del-sistema)
+- [Flujo de Registro & Login](#flujo-de-registro--login)
+- [Flujo de Agregar al Carrito](#flujo-de-agregar-al-carrito)
+- [Flujo de Checkout](#flujo-de-checkout)
+- [Ciclo de Vida del Producto](#ciclo-de-vida-del-producto-máquina-de-estados)
+
+**🔐 Seguridad & Operaciones**
+- [Seguridad](#-seguridad)
+- [Instalación & Ejecución](#-instalación--ejecución)
+- [Pruebas Automatizadas](#-pruebas-automatizadas)
+- [Métricas & Monitoreo](#-métricas--monitoreo)
+- [Limitaciones Conocidas](#-limitaciones-conocidas)
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 1. 📋 Requisitos
-
-<details>
-<summary><strong>1.1 Requisitos Funcionales (RF)</strong></summary>
-
-| ID | Requisito | Prioridad |
-|:---|:----------|:---------:|
-| RF01 | El sistema debe permitir que nuevos usuarios se registren con un nombre de usuario único y contraseña. | Alta |
-| RF02 | El sistema debe permitir que usuarios registrados inicien sesión con usuario y contraseña. | Alta |
-| RF03 | El sistema debe permitir que usuarios autenticados cierren sesión, finalizando su sesión. | Alta |
-| RF04 | El sistema debe mostrar el catálogo de todos los productos en la página principal (nombre, precio, descripción, imagen). | Alta |
-| RF05 | El sistema debe permitir que usuarios autenticados agreguen nuevos productos, incluyendo carga opcional de imagen. | Alta |
-| RF06 | El sistema debe permitir que usuarios autenticados editen productos existentes (nombre, descripción, precio, imagen). | Alta |
-| RF07 | El sistema debe permitir que usuarios autenticados eliminen productos, removiendo el archivo de imagen asociado del almacenamiento. | Media |
-| RF08 | El sistema debe permitir que usuarios autenticados agreguen un producto a su carrito de compras personal. | Alta |
-| RF09 | El sistema debe incrementar la cantidad de un ítem existente en el carrito si el mismo producto se agrega de nuevo. | Media |
-| RF10 | El sistema debe mostrar el carrito con nombre del ítem, precio unitario, cantidad, subtotal y total general. | Alta |
-| RF11 | El sistema debe permitir que usuarios autenticados eliminen ítems individuales del carrito. | Media |
-| RF12 | El sistema debe proporcionar un formulario de checkout que requiera el nombre completo y el correo electrónico del cliente. | Media |
-| RF13 | El sistema debe vaciar el carrito del usuario después de un checkout exitoso y redirigir a una página de confirmación de pedido. | Alta |
-| RF14 | El sistema debe persistir usuarios, productos e ítems del carrito en una base de datos relacional (SQLite). | Alta |
-
 </details>
 
-<details>
-<summary><strong>1.2 Requisitos No Funcionales (RNF)</strong></summary>
-
-| ID | Requisito | Categoría |
-|:---|:----------|:---------:|
-| RNF01 | Las contraseñas deben almacenarse con hash unidireccional (Bcrypt), nunca en texto plano. | Seguridad |
-| RNF02 | Todos los formularios deben estar protegidos contra ataques CSRF mediante tokens de Flask-WTF. | Seguridad |
-| RNF03 | Las rutas que crean/modifican datos (productos, carrito, checkout) deben requerir una sesión autenticada. | Seguridad |
-| RNF04 | Las imágenes cargadas deben limitarse a 16 MB y almacenarse con un nombre de archivo aleatorio para evitar colisiones. | Seguridad / Confiabilidad |
-| RNF05 | Las operaciones estándar de catálogo y carrito deben responder en menos de 1 segundo bajo carga local normal. | Rendimiento |
-| RNF06 | La interfaz debe ser legible y utilizable tanto en escritorio como en dispositivos móviles. | Usabilidad |
-| RNF07 | Cada acción que cambie el estado debe dar al usuario retroalimentación clara mediante mensajes flash. | Usabilidad |
-| RNF08 | El código debe estar organizado en módulos claros (models, forms, rutas, templates) para facilitar el mantenimiento. | Mantenibilidad |
-| RNF09 | La aplicación debe ejecutarse en cualquier SO con Python 3.10+, sin dependencias nativas adicionales (SQLite se basa en archivos). | Portabilidad |
-| RNF10 | Los flujos críticos (autenticación, catálogo, carrito) deben estar cubiertos por pruebas automatizadas (pytest). | Verificabilidad |
-
-</details>
+## 🌟 Visión General
 
 <details>
-<summary><strong>1.3 Reglas de Negocio (RN)</strong></summary>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
 
-| ID | Regla |
-|:---|:------|
-| RN01 | Un nombre de usuario debe ser único en todo el sistema; los registros duplicados son rechazados. |
-| RN02 | Un producto debe tener nombre y precio mayor que cero; la descripción y la imagen son opcionales. |
-| RN03 | Si no se proporciona una imagen para un producto, el sistema utiliza una imagen predeterminada (`default.jpg`). |
-| RN04 | Un carrito pertenece exactamente a un usuario; agregar el mismo producto de nuevo incrementa su cantidad en lugar de duplicar el registro. |
-| RN05 | El total del carrito es igual a la suma de (precio unitario × cantidad) de todos los ítems. |
-| RN06 | El checkout solo se permite cuando el carrito no está vacío. |
-| RN07 | Un checkout exitoso vacía completamente el carrito del usuario. |
-| RN08 | Cuando se reemplaza la imagen de un producto o se elimina el producto, el archivo de imagen anterior se elimina del disco (excepto la imagen predeterminada). |
-| RN09 | Solo los usuarios autenticados pueden gestionar el catálogo (crear/editar/eliminar productos) y su propio carrito. |
-| RN10 | Un usuario solo puede ver y modificar su propio carrito, nunca el de otro usuario. |
+**Lojinha Local** es una demo de e-commerce full-stack escrita en **Python** con **Flask**. Implementa el ciclo esencial de una tienda en línea: un propietario autenticado gestiona un catálogo de productos, los visitantes lo navegan, agregan artículos a un carrito por usuario persistido en la base de datos, y completan un pedido mediante un formulario de checkout.
 
-</details>
+La aplicación es deliberadamente pequeña y monolítica: un único `app.py` define todas las rutas, `models.py` define tres modelos SQLAlchemy, `forms.py` define cuatro formularios `Flask-WTF`, y nueve plantillas Jinja2 extienden un `base.html` compartido, con estilo Bootstrap 5. No hay framework JavaScript, ninguna API REST ni estado del lado del cliente, cada interacción es un envío de formulario de página completa o navegación por enlace manejada en el servidor.
 
-<details>
-<summary><strong>1.4 Requisitos de Dominio</strong></summary>
+La persistencia usa **SQLite** a través de **Flask-SQLAlchemy**, las contraseñas se hashean con **Flask-Bcrypt**, y la protección CSRF en cada formulario la provee **Flask-WTF**. Las imágenes de producto se suben a `static/uploads/` con nombres de archivo aleatorios para evitar colisiones y path traversal a partir de nombres proporcionados por el usuario.
 
-El sistema modela el dominio de una **tienda local con un único vendedor (B2C)**:
+### 🎯 Objetivos del Sistema
 
-- **Cuenta**: cada cliente/gestor tiene una cuenta (`User`), identificada por un `username` único.
-- **Catálogo**: un conjunto compartido de entidades `Produto`, visible para cualquier visitante, esté o no autenticado.
-- **Carrito**: cada usuario autenticado posee exactamente un carrito, representado por una colección de registros `CarrinhoItem` que vinculan `User` ↔ `Produto` con una `quantidade`.
-- **Pedido**: el checkout es una transacción única que consume el carrito; no se mantiene un historial persistente de `Pedido`/`ItemPedido` (alcance actual).
-
-**Fuera del alcance de este dominio** (explícitamente no modelado): marketplaces multi-vendedor, control de stock/inventario, integración con pasarela de pago, cálculo de impuestos/envío, historial y seguimiento del estado de pedidos. Son candidatos para futuras iteraciones.
-
-</details>
-
-<details>
-<summary><strong>1.5 Requisitos de Datos</strong></summary>
-
-| Entidad | Campo | Tipo | Restricción |
-|:--------|:------|:-----|:------------|
-| `User` | `id` | Integer | Clave Primaria |
-| `User` | `username` | String(150) | Único, No Nulo |
-| `User` | `password` | String(150) | No Nulo (hash Bcrypt) |
-| `Produto` | `id` | Integer | Clave Primaria |
-| `Produto` | `nome` | String(100) | No Nulo |
-| `Produto` | `descricao` | Text | Puede ser Nulo |
-| `Produto` | `preco` | Float | No Nulo |
-| `Produto` | `imagem` | String(300) | Puede ser Nulo, valor predeterminado `'default.jpg'` |
-| `CarrinhoItem` | `id` | Integer | Clave Primaria |
-| `CarrinhoItem` | `quantidade` | Integer | No Nulo, valor predeterminado `1` |
-| `CarrinhoItem` | `user_id` | Integer | Clave Foránea → `User.id` |
-| `CarrinhoItem` | `produto_id` | Integer | Clave Foránea → `Produto.id` |
-
-> 📌 Los modelos conceptual / lógico / físico completos y el diccionario de datos completo se detallan en **[6. Modelo de Datos & Diccionario de Datos](#6--modelo-de-datos--diccionario-de-datos)**.
-
-</details>
-
-<details>
-<summary><strong>1.6 Requisitos de Interfaz</strong></summary>
-
-| Página / Template | Requisito |
-|:-------------------|:----------|
-| `base.html` | Debe proporcionar un diseño compartido con barra de navegación, área de mensajes flash y estado de inicio/cierre de sesión. |
-| `index.html` | Debe listar todos los productos con imagen, nombre, precio y una acción de "agregar al carrito". |
-| `register.html` / `login.html` | Debe renderizar un formulario Flask-WTF con token CSRF y errores de validación en línea. |
-| `adicionar_produto.html` / `editar_produto.html` | Debe incluir un formulario multipart con soporte para carga de imágenes. |
-| `carrinho.html` | Debe listar los ítems del carrito con cantidad, subtotal y total general, además de una acción de eliminación por ítem. |
-| `checkout.html` | Debe mostrar el resumen del pedido (ítems + total) junto al formulario de datos del cliente. |
-| `pedido_sucesso.html` | Debe confirmar que el pedido se realizó con éxito. |
-| Global | El diseño debe ser responsivo (escritorio y móvil) usando `static/style.css`. |
-
-</details>
+| Objetivo | Descripción |
+|-----------|-------------|
+| 👤 **Cuentas de Usuario** | Permitir que los visitantes se registren e inicien sesión con contraseña hasheada antes de gestionar la tienda |
+| 🛍️ **Catálogo de Productos** | Mostrar cada producto en la página principal con imagen, nombre, descripción y precio |
+| ➕ **Gestión del Catálogo** | Permitir que usuarios autenticados creen, editen y eliminen productos, incluyendo la carga de imágenes |
+| 🛒 **Carrito Persistente** | Mantener un carrito de compras por usuario en la base de datos, no en la sesión, para que sobreviva a nuevos inicios de sesión |
+| 💳 **Checkout** | Recopilar el nombre, correo electrónico y dirección del cliente, vaciar el carrito y confirmar el pedido |
+| 🖼️ **Manejo de Imágenes** | Almacenar imágenes subidas con nombres de archivo aleatorios y eliminar el archivo antiguo cuando una imagen se reemplaza o el producto se elimina |
+| 🔐 **Control de Acceso** | Proteger cada ruta que modifica estado (`add`, `edit`, `delete`, carrito, checkout) detrás del decorador `login_required` |
+| 🧪 **Verificabilidad** | Incluir una suite automatizada de `pytest` que cubre registro, login/logout, creación de productos y persistencia del carrito |
 
 ---
 
-## 2. 🎯 Casos de Uso
-
-<details>
-<summary><strong>UC01 — Registrar Cuenta</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Visitante |
-| **Descripción** | Un visitante crea una cuenta para acceder a funcionalidades autenticadas. |
-| **Precondiciones** | El visitante no ha iniciado sesión. |
-| **Flujo Principal** | 1. El visitante abre `/register`. 2. Completa usuario y contraseña. 3. El sistema valida el formulario (CSRF, campos obligatorios). 4. El sistema verifica la unicidad del nombre de usuario. 5. El sistema genera el hash de la contraseña y crea el `User`. 6. El sistema redirige a `/login` con un mensaje de éxito. |
-| **Flujo Alternativo** | Si el nombre de usuario ya existe, el sistema muestra un error de validación y permanece en el formulario. |
-| **Postcondiciones** | Existe un nuevo registro `User` con la contraseña en hash. |
-
 </details>
 
-<details>
-<summary><strong>UC02 — Iniciar Sesión</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Registrado |
-| **Descripción** | Un usuario registrado se autentica para acceder a rutas protegidas. |
-| **Precondiciones** | El usuario tiene una cuenta registrada. |
-| **Flujo Principal** | 1. El usuario abre `/login`. 2. Ingresa usuario y contraseña. 3. El sistema verifica el hash con Bcrypt. 4. El sistema almacena `user_id`/`username` en la sesión. 5. El sistema redirige a la página principal con un mensaje de bienvenida. |
-| **Flujo Alternativo** | Si las credenciales son inválidas, el sistema muestra "Login falhou" y permanece en el formulario. |
-| **Postcondiciones** | El usuario tiene una sesión activa y puede acceder a rutas protegidas. |
-
-</details>
+## 🏗️ Arquitectura del Sistema
 
 <details>
-<summary><strong>UC03 — Cerrar Sesión</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado |
-| **Descripción** | El usuario finaliza su sesión. |
-| **Precondiciones** | El usuario está autenticado. |
-| **Flujo Principal** | 1. El usuario hace clic en "Logout" (`/logout`). 2. El sistema elimina `user_id`/`username` de la sesión. 3. El sistema redirige a `/login` con un mensaje informativo. |
-| **Postcondiciones** | La sesión ya no otorga acceso a rutas protegidas. |
-
-</details>
-
-<details>
-<summary><strong>UC04 — Navegar por el Catálogo de Productos</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Visitante / Usuario Autenticado |
-| **Descripción** | Cualquier persona puede ver la lista de productos disponibles. |
-| **Precondiciones** | Ninguna. |
-| **Flujo Principal** | 1. El usuario abre `/`. 2. El sistema consulta todos los registros `Produto`. 3. El sistema renderiza `index.html` con nombre, precio, descripción e imagen de cada producto. |
-| **Postcondiciones** | El usuario puede ver todos los productos actualmente en el catálogo. |
-
-</details>
-
-<details>
-<summary><strong>UC05 — Agregar Producto</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado (gestor) |
-| **Descripción** | Un usuario autenticado registra un nuevo producto en el catálogo. |
-| **Precondiciones** | El usuario está autenticado. |
-| **Flujo Principal** | 1. El usuario abre `/adicionar_produto`. 2. Completa nombre, descripción, precio y (opcionalmente) una imagen. 3. El sistema valida el formulario. 4. Si se envía una imagen, el sistema la guarda en `static/uploads/` con un nombre de archivo aleatorio. 5. El sistema crea el registro `Produto` y redirige a `/` con un mensaje de éxito. |
-| **Flujo Alternativo** | Si no se proporciona una imagen, `imagem` permanece `None`/predeterminada. |
-| **Postcondiciones** | Existe un nuevo `Produto` y aparece en el catálogo. |
-
-</details>
-
-<details>
-<summary><strong>UC06 — Editar Producto</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado (gestor) |
-| **Descripción** | Un usuario autenticado actualiza los datos de un producto existente. |
-| **Precondiciones** | El usuario está autenticado y el producto existe. |
-| **Flujo Principal** | 1. El usuario abre `/editar_produto/<id>`. 2. El formulario se precompleta con los datos actuales. 3. El usuario edita los campos y/o sube una nueva imagen. 4. Si se envía una nueva imagen, el archivo de imagen anterior se elimina (a menos que sea `default.jpg`) y se reemplaza. 5. El sistema confirma los cambios y redirige a `/` con un mensaje de éxito. |
-| **Postcondiciones** | El registro `Produto` refleja los valores actualizados. |
-
-</details>
-
-<details>
-<summary><strong>UC07 — Eliminar Producto</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado (gestor) |
-| **Descripción** | Un usuario autenticado elimina un producto del catálogo. |
-| **Precondiciones** | El usuario está autenticado y el producto existe. |
-| **Flujo Principal** | 1. El usuario activa `/excluir_produto/<id>`. 2. El sistema elimina el archivo de imagen asociado del disco (a menos que sea `default.jpg`). 3. El sistema elimina el registro `Produto`. 4. El sistema redirige a `/` con un mensaje de éxito. |
-| **Postcondiciones** | El producto ya no aparece en el catálogo ni en ningún carrito. |
-
-</details>
-
-<details>
-<summary><strong>UC08 — Agregar Producto al Carrito</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado |
-| **Descripción** | Un usuario agrega un producto a su carrito personal. |
-| **Precondiciones** | El usuario está autenticado y el producto existe. |
-| **Flujo Principal** | 1. El usuario activa `/add_carrinho/<id>`. 2. El sistema verifica si ya existe un `CarrinhoItem` para ese usuario/producto. 3a. Si existe, incrementa `quantidade` en 1. 3b. Si no existe, crea un nuevo `CarrinhoItem` con `quantidade = 1`. 4. El sistema redirige a `/` con un mensaje de éxito. |
-| **Postcondiciones** | El carrito contiene el producto con la cantidad actualizada. |
-
-</details>
-
-<details>
-<summary><strong>UC09 — Ver / Actualizar Carrito</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado |
-| **Descripción** | Un usuario visualiza su carrito y puede eliminar ítems. |
-| **Precondiciones** | El usuario está autenticado. |
-| **Flujo Principal** | 1. El usuario abre `/carrinho`. 2. El sistema carga todos los registros `CarrinhoItem` del usuario (con join a `Produto`). 3. El sistema calcula el subtotal por ítem y el total general. 4. El sistema renderiza `carrinho.html`. |
-| **Flujo Alternativo** | El usuario activa `/remover_carrinho/<id>`; el sistema elimina el `CarrinhoItem` correspondiente y redirige de nuevo a `/carrinho` con un mensaje informativo. |
-| **Postcondiciones** | La vista del carrito refleja los ítems y el total actuales. |
-
-</details>
-
-<details>
-<summary><strong>UC10 — Finalizar Compra (Checkout)</strong></summary>
-
-| Campo | Descripción |
-|:------|:------------|
-| **Actor** | Usuario Autenticado |
-| **Descripción** | Un usuario finaliza la compra de los ítems en su carrito. |
-| **Precondiciones** | El usuario está autenticado y el carrito no está vacío. |
-| **Flujo Principal** | 1. El usuario abre `/checkout`. 2. El sistema muestra el resumen del pedido y un formulario con nombre completo y correo electrónico. 3. El usuario envía el formulario. 4. El sistema valida el formulario (CSRF + campos obligatorios). 5. El sistema elimina todos los registros `CarrinhoItem` del usuario. 6. El sistema redirige a `/pedido_sucesso`. |
-| **Flujo Alternativo** | Si el carrito está vacío al abrir `/checkout`, el sistema redirige a `/` con un mensaje de advertencia. |
-| **Postcondiciones** | El carrito del usuario está vacío y se muestra una página de confirmación de pedido. |
-
-</details>
-
----
-
-## 3. 🔗 Matriz de Trazabilidad de Requisitos
-
-> 🚧 **En construcción.** Esta sección mapeará cada **RF / RNF / RN** de la [Sección 1](#1--requisitos) con los **Casos de Uso**, archivos de origen (rutas/models/templates) y casos de prueba que los implementan y verifican.
-
-<details>
-<summary>Estructura planificada</summary>
-
-| Requisito | Caso(s) de Uso | Implementación | Prueba(s) |
-|:----------|:----------------|:----------------|:----------|
-| RF01 | UC01 | `app.py::register` | `test_app.py` |
-| ... | ... | ... | ... |
-
-</details>
-
----
-
-## 4. 📄 Especificación de Requisitos de Software (SRS)
-
-> 🚧 **En construcción.** Un documento SRS consolidado (estilo IEEE 830 / ISO 29148) que cubre alcance, descripción general, requisitos específicos, interfaces externas y restricciones — agregando las Secciones 1–3.
-
----
-
-## 5. 🖼️ Diagramas UML & Estructurales
-
-> 🚧 **En construcción.** Los diagramas se proporcionarán en Mermaid (renderizados en línea en GitHub):
-
-<details>
-<summary>Diagramas planificados</summary>
-
-- [ ] Diagrama de Casos de Uso
-- [ ] Diagrama de Clases
-- [ ] Diagrama de Objetos
-- [ ] Diagrama de Secuencia
-- [ ] Diagrama de Comunicación (Colaboración)
-- [ ] Diagrama de Actividades
-- [ ] Diagrama de Máquina de Estados
-- [ ] Diagrama de Componentes
-- [ ] Diagrama de Implementación (Deployment)
-- [ ] Diagrama de Paquetes
-- [ ] Diagrama de Estructura Compuesta
-- [ ] Diagrama de Visión General de Interacción
-- [ ] Diagrama de Tiempo (Timing)
-
-</details>
-
----
-
-## 6. 🗄️ Modelo de Datos & Diccionario de Datos
-
-> 🚧 **En construcción.** Amplía los [1.5 Requisitos de Datos](#15-requisitos-de-datos).
-
-<details>
-<summary>Contenido planificado</summary>
-
-- [ ] Diagrama Entidad-Relación (DER)
-- [ ] Modelo Conceptual de Datos
-- [ ] Modelo Lógico de Datos
-- [ ] Modelo Físico de Datos
-- [ ] Diccionario de Datos completo (tabla/columna, tipo, restricciones, descripción)
-
-</details>
-
----
-
-## 7. 🌊 Diagrama de Flujo de Datos (DFD)
-
-> 🚧 **En construcción.**
-
-<details>
-<summary>Contenido planificado</summary>
-
-- [ ] Diagrama de Flujo de Datos (Niveles 0/1) — Usuario ↔ rutas Flask ↔ SQLite ↔ Almacenamiento de archivos
-- [ ] Diagrama de Linaje de Datos — desde la entrada del formulario hasta los datos persistidos/derivados (p. ej., total del carrito)
-
-</details>
-
----
-
-## 8. 🏗️ Diagrama de Arquitectura & Diagrama de Flujo
-
-> 🚧 **En construcción.**
-
-<details>
-<summary>Contenido planificado</summary>
-
-- [ ] Diagrama de Arquitectura (visión general) — Navegador ↔ App Flask ↔ SQLAlchemy ↔ SQLite + static/uploads
-- [ ] Diagrama de Flujo — flujo de decisión del checkout (¿carrito vacío? ¿formulario válido? página de éxito)
-
-</details>
-
----
-
-## 9. 🧑 Persona & Mapa de Viaje del Usuario
-
-> 🚧 **En construcción.**
-
-<details>
-<summary>Contenido planificado</summary>
-
-- [ ] Persona — p. ej., "María, dueña de una tienda local que gestiona su catálogo"
-- [ ] Mapa de Viaje del Usuario — desde la llegada al catálogo hasta completar el checkout
-
-</details>
-
----
-
-## 10. 🎨 Wireframes & Mockups
-
-> 🚧 **En construcción.**
-
-<details>
-<summary>Contenido planificado</summary>
-
-- [ ] Wireframes — diseños de baja fidelidad para catálogo, carrito y checkout
-- [ ] Mockups — visuales de alta fidelidad alineados con `static/style.css`
-
-</details>
-
----
-
-## 11. 🚀 Instalación & Ejecución
-
-### Requisitos Previos
-
-| Requisito | Detalle |
-|:----------|:--------|
-| **Python** | 3.10+ |
-| **pip** | incluido con Python |
-| **Git** | para clonar el repositorio |
-
-### Pasos
-
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/VictorHJesusSantiago/lojinha_local.git
-cd lojinha_local
-
-# 2. Crear y activar el entorno virtual
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-
-# 3. Instalar dependencias
-pip install -r requirements.txt
-
-# 4. Crear la base de datos
-flask shell -c "from app import db; db.create_all()"
-
-# 5. Ejecutar la aplicación
-flask run --debug
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Diagrama de Módulos
+
+```mermaid
+flowchart TB
+    subgraph UI["📱  CAPA DE PRESENTACIÓN"]
+        direction LR
+        BASE["🪟 base.html\n─────────────\nNavbar · mensajes flash\nBootstrap 5 + Bootstrap Icons"]
+        PAGES["📄 9 plantillas Jinja2\n─────────────\nindex · login · register\ncarrinho · checkout\nadicionar/editar_produto\npedido_sucesso"]
+        CSS["🎨 static/style.css\n─────────────\nHover de tarjeta · pie de página\ndestaque de precio"]
+    end
+
+    subgraph APP["🏛️  APLICACIÓN — app.py"]
+        direction TB
+        AUTH["🔐 Rutas de auth\n────────────\n/register /login /logout"]
+        CATALOG["🛍️ Rutas de catálogo\n────────────\n/ /adicionar_produto\n/editar_produto/<id>\n/excluir_produto/<id>"]
+        CART["🛒 Rutas de carrito/checkout\n────────────\n/add_carrinho/<id>\n/remover_carrinho/<id>\n/carrinho /checkout\n/pedido_sucesso"]
+        GUARD["🚦 Decorador\nlogin_required\n────────────\nverifica session['user_id']"]
+    end
+
+    subgraph DOMAIN["⚙️  CAPA DE DOMINIO"]
+        direction LR
+        FORMS["📝 forms.py\n─────────────\nRegistrationForm\nLoginForm\nProdutoForm\nCheckoutForm"]
+        MODELS["🗂️ models.py\n─────────────\nUser\nProduto\nCarrinhoItem"]
+    end
+
+    subgraph INFRA["💾  INFRAESTRUCTURA"]
+        direction LR
+        EXT["🔌 extensions.py\n─────────────\nSQLAlchemy db\nBcrypt bcrypt"]
+        DB[("🗄️ SQLite\nlojinha.db\n(instance/)")]
+        UPLOADS[("📂 static/uploads/\nnombres aleatorios")]
+    end
+
+    BASE --> PAGES
+    CSS -.->|"estilos"| BASE
+    PAGES -->|"HTTP GET/POST"| AUTH & CATALOG & CART
+    AUTH --> GUARD
+    CATALOG --> GUARD
+    CART --> GUARD
+    AUTH --> FORMS
+    CATALOG --> FORMS
+    CART --> FORMS
+    FORMS --> MODELS
+    AUTH --> MODELS
+    CATALOG --> MODELS
+    CART --> MODELS
+    MODELS --> EXT
+    EXT --> DB
+    CATALOG -->|"save_picture()"| UPLOADS
+    MODELS -->|"renderiza"| PAGES
+
+    style UI fill:#1e3a5f,color:#fff,stroke:#4a90d9
+    style APP fill:#1a3a1a,color:#fff,stroke:#4caf50
+    style DOMAIN fill:#3a1a1a,color:#fff,stroke:#e57373
+    style INFRA fill:#3a2a1a,color:#fff,stroke:#ffb74d
 ```
 
-| Servicio | URL |
-|:---------|:----|
-| 🏠 Inicio (catálogo) | `http://localhost:5000` |
-| 🔐 Iniciar sesión | `http://localhost:5000/login` |
-| 📋 Registro | `http://localhost:5000/register` |
-| ➕ Agregar Producto | `http://localhost:5000/adicionar_produto` |
+### Capas de la Arquitectura
+
+```mermaid
+flowchart LR
+    subgraph L1["📱 Presentación"]
+        A1["Plantillas Jinja2"]
+        A2["UI Bootstrap 5"]
+    end
+    subgraph L2["🏛️ Aplicación"]
+        B1["Rutas Flask\napp.py"]
+    end
+    subgraph L3["⚙️ Dominio"]
+        C1["Formularios + Modelos\nvalidación & reglas"]
+    end
+    subgraph L4["💾 Infraestructura"]
+        D1["SQLAlchemy / SQLite"]
+        D2["Cargas en el sistema de archivos"]
+    end
+
+    L1 --> L2 --> L3 --> L4
+
+    style L1 fill:#1565C0,color:#fff
+    style L2 fill:#2E7D32,color:#fff
+    style L3 fill:#6A1B9A,color:#fff
+    style L4 fill:#BF360C,color:#fff
+```
 
 ---
 
-## 12. 👨‍💻 Autor
+</details>
 
-<div align="center">
+## 🛠️ Stack Tecnológico
 
-**Victor H. J. Santiago**
-Full Stack Developer
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VictorHJesusSantiago)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victor-henrique-de-jesus-santiago/)
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Tecnología</th>
+<th>Versión</th>
+<th>Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2"><strong>🧠 Lenguaje</strong></td>
+<td>Python</td>
+<td>3.x</td>
+<td>Lenguaje de origen de la aplicación</td>
+</tr>
+<tr>
+<td>Jinja2</td>
+<td>incluido con Flask</td>
+<td>Plantillas HTML en el servidor</td>
+</tr>
+<tr>
+<td rowspan="4"><strong>🌐 Framework Web</strong></td>
+<td>Flask</td>
+<td>sin versión fijada (<code>requirements.txt</code>)</td>
+<td>Aplicación WSGI, enrutamiento, ciclo de solicitud/respuesta</td>
+</tr>
+<tr>
+<td>Flask-WTF</td>
+<td>sin versión fijada</td>
+<td>Objetos de formulario, protección CSRF</td>
+</tr>
+<tr>
+<td>WTForms</td>
+<td>incluido con Flask-WTF</td>
+<td>Tipos de campo y validadores (<code>DataRequired</code>, <code>Email</code>, <code>EqualTo</code>...)</td>
+</tr>
+<tr>
+<td>email_validator</td>
+<td>sin versión fijada</td>
+<td>Respalda el validador <code>Email()</code> usado por <code>CheckoutForm</code></td>
+</tr>
+<tr>
+<td rowspan="2"><strong>💾 Persistencia</strong></td>
+<td>Flask-SQLAlchemy</td>
+<td>sin versión fijada</td>
+<td>Capa ORM sobre <code>db.Model</code> (<code>User</code>, <code>Produto</code>, <code>CarrinhoItem</code>)</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>motor incluido con Python</td>
+<td>Base de datos relacional basada en archivo, <code>instance/lojinha.db</code></td>
+</tr>
+<tr>
+<td rowspan="1"><strong>🔐 Seguridad</strong></td>
+<td>Flask-Bcrypt</td>
+<td>sin versión fijada</td>
+<td>Hash de contraseña (<code>generate_password_hash</code> / <code>check_password_hash</code>)</td>
+</tr>
+<tr>
+<td rowspan="3"><strong>🎨 Frontend</strong></td>
+<td>Bootstrap</td>
+<td>5.3.2 (CDN)</td>
+<td>Layout, tarjetas, formularios, navbar, alertas</td>
+</tr>
+<tr>
+<td>Bootstrap Icons</td>
+<td>1.11.1 (CDN)</td>
+<td>Íconos de carrito, persona y papelera en la navbar y la tabla del carrito</td>
+</tr>
+<tr>
+<td>CSS Personalizado</td>
+<td><code>static/style.css</code></td>
+<td>Animación de hover en tarjeta, pie de página fijo, color del precio</td>
+</tr>
+<tr>
+<td rowspan="1"><strong>🧪 Pruebas</strong></td>
+<td>pytest</td>
+<td>sin versión fijada</td>
+<td>Pruebas funcionales sobre el cliente de prueba de Flask, <code>test_app.py</code></td>
+</tr>
+</tbody>
+</table>
 
-</div>
+> [!NOTE]
+> `requirements.txt` no fija números de versión (`Flask`, `Flask-SQLAlchemy`, `Flask-Bcrypt`, `Flask-WTF`, `pytest`, `email_validator`), por lo que las versiones efectivamente resueltas dependen de lo que `pip` instale en el momento de la configuración. Solo los recursos de frontend cargados vía CDN (Bootstrap, Bootstrap Icons) llevan versiones explícitas, tomadas directamente de `templates/base.html`.
+
+---
+
+</details>
+
+## 🎨 Patrones de Diseño Aplicados
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+| Patrón | Dónde | Justificación |
+|---------|-------|-----------|
+| 🧭 **Application Factory (parcial)** | `app = Flask(__name__)` + `db.init_app(app)` / `bcrypt.init_app(app)` en `app.py` | Las extensiones se instancian en `extensions.py` y se vinculan después, evitando importaciones circulares entre `models.py` y `app.py` |
+| 🚦 **Decorator / Guard Clause** | `login_required` en `app.py` | Centraliza la verificación "debe estar autenticado" en lugar de repetirla en cada vista |
+| 🗂️ **Active Record (vía ORM)** | `User`, `Produto`, `CarrinhoItem` en `models.py` | Cada modelo envuelve su propia tabla y relaciones, siguiendo cómo `Flask-SQLAlchemy` expone `db.Model` |
+| 📝 **Form Object** | `RegistrationForm`, `LoginForm`, `ProdutoForm`, `CheckoutForm` en `forms.py` | Las reglas de validación y definiciones de campo se declaran una vez y se reutilizan entre `GET`/`POST` |
+| 🧩 **Herencia de Plantillas** | `{% extends 'base.html' %}` en cada plantilla de página | Navbar, mensajes flash y pie de página se definen una sola vez en `base.html` |
+| 🔁 **Extracción de Helper** | `save_picture()`, `get_cart_details()` en `app.py` | La lógica repetida (persistencia de archivo, agregación de carrito) se extrae de los manejadores de rutas |
+| 🏷️ **Validador Personalizado** | `RegistrationForm.validate_username` | La convención de WTForms de métodos `validate_<campo>` garantiza la unicidad del nombre de usuario contra la base de datos |
+| 🔀 **Strategy (implícito)** | `ver_carrinho()` vs `get_cart_details()` | Existen dos estrategias similares de agregación de carrito, una para visualización (dict con datos completos) y otra para checkout (solo nombre + cantidad) |
+
+---
+
+</details>
+
+## 📁 Estructura del Proyecto
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+```
+lojinha_local/
+│
+├── 📄 app.py                       # App Flask, las 15 rutas, save_picture(), login_required
+├── 📄 extensions.py                # Instancias compartidas de SQLAlchemy `db` y Bcrypt `bcrypt`
+├── 📄 models.py                    # Modelos SQLAlchemy User, Produto, CarrinhoItem
+├── 📄 forms.py                     # RegistrationForm, LoginForm, ProdutoForm, CheckoutForm
+├── 📄 test_app.py                  # Suite pytest (7 pruebas) sobre el cliente de prueba de Flask
+├── 📄 requirements.txt             # Flask, Flask-SQLAlchemy, Flask-Bcrypt, Flask-WTF, pytest, email_validator
+├── 📄 .gitignore                   # Excluye secretos, *.db, cachés, venvs
+├── 📄 produtos.db                  # Archivo SQLite obsoleto/suelto en la raíz (no usado por app.py)
+│
+├── 📂 instance/
+│   └── 📄 lojinha.db               # Base de datos SQLite activa (SQLALCHEMY_DATABASE_URI)
+│
+├── 📂 images/                      # Fotos de producto de referencia/semilla (no servidas por Flask)
+│   ├── download.jpg
+│   ├── images.jpg
+│   ├── vitaminico.jpg
+│   └── whey_1kg.jpg
+│
+├── 📂 static/
+│   ├── 📄 style.css                # Hover de tarjeta, pie de página fijo, color de precio (servido en /static/style.css)
+│   └── 📂 uploads/                 # Imágenes de producto subidas, nombres con 16 caracteres hex aleatorios
+│       ├── 00c736fb18612e1c.jpg
+│       ├── 3d1cc0a715767b0e.jpg
+│       ├── a8d1f22085501241.jpg
+│       ├── bb87983865f6ae47.jpg
+│       └── d89f03ba49bf53f4.jpg
+│
+├── 📂 templates/
+│   ├── 📄 base.html                # Layout compartido: navbar, mensajes flash, pie de página
+│   ├── 📄 index.html               # Cuadrícula del catálogo de productos
+│   ├── 📄 login.html               # Formulario de login
+│   ├── 📄 register.html            # Formulario de registro
+│   ├── 📄 adicionar_produto.html   # Formulario de agregar producto (multipart, carga de imagen)
+│   ├── 📄 editar_produto.html      # Formulario de editar producto, precargado vía `obj=produto`
+│   ├── 📄 carrinho.html            # Tabla del carrito con subtotal/total y enlaces de eliminación
+│   ├── 📄 checkout.html            # Resumen del pedido + CheckoutForm
+│   └── 📄 pedido_sucesso.html      # Página de confirmación del pedido
+│
+├── 📄 README.md                    # 🇺🇸 English (primario)
+├── 📄 README_PT.md                 # 🇧🇷 Português
+└── 📄 README_ES.md                 # 🇪🇸 Español
+```
+
+---
+
+</details>
+
+## 📦 Módulos del Sistema
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### 🏛️ Arranque de la Aplicación — `app.py`
+
+El punto de entrada. Crea la aplicación `Flask`, configura `SECRET_KEY`, `instance_path`, `SQLALCHEMY_DATABASE_URI`, `UPLOAD_FOLDER` y `MAX_CONTENT_LENGTH`, y luego vincula las dos extensiones compartidas y registra las 15 rutas.
+
+| Responsabilidad | Implementación |
+|-----------------|----------------|
+| Configuración | `app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lojinha.db'` (resuelto dentro de `instance/`) |
+| Directorio de carga | `app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')`, creado con `os.makedirs(..., exist_ok=True)` |
+| Límite de tamaño de carga | `app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024` (16 MB) |
+| Vinculación de extensiones | `db.init_app(app)`, `bcrypt.init_app(app)` |
+| Punto de entrada de desarrollo | `if __name__ == '__main__': db.create_all(); app.run(debug=True)` |
+
+---
+
+### 🔌 Extensiones — `extensions.py`
+
+Un módulo de dos líneas que existe puramente para romper la importación circular entre `app.py` (que necesita `db` para configurar la aplicación) y `models.py` (que necesita `db.Model` para declarar tablas).
+
+| Objeto | Tipo | Propósito |
+|--------|------|---------|
+| `db` | `flask_sqlalchemy.SQLAlchemy()` | Instancia ORM compartida, vinculada en `app.py`, importada por `models.py` |
+| `bcrypt` | `flask_bcrypt.Bcrypt()` | Instancia de hash compartida, vinculada en `app.py`, usada en `register()` y `login()` |
+
+---
+
+### 🗂️ Modelos de Datos — `models.py`
+
+Tres clases `db.Model` sin `__init__` ni `__repr__` personalizados, apoyándose enteramente en los valores predeterminados de `Flask-SQLAlchemy`.
+
+| Modelo | Columnas | Relaciones |
+|-------|---------|---------------|
+| `User` | `id`, `username` (único), `password` (hash bcrypt) | `carrinho_itens` — uno a muchos con `CarrinhoItem`, `cascade="all, delete-orphan"` |
+| `Produto` | `id`, `nome`, `descricao` (opcional), `preco` (`Float`), `imagem` (predeterminado `'default.jpg'`) | referenciado por `CarrinhoItem.produto_id` |
+| `CarrinhoItem` | `id`, `quantidade` (predeterminado `1`), `user_id` (FK), `produto_id` (FK) | `produto` — `db.relationship('Produto')`; `user` backref creado desde `User.carrinho_itens` |
+
+---
+
+### 📝 Formularios — `forms.py`
+
+Cuatro subclases de `FlaskForm`, cada una asociada uno a uno con una ruta.
+
+| Formulario | Campos | Validadores clave |
+|------|--------|-----------------|
+| `RegistrationForm` | `username`, `password`, `confirm_password`, `submit` | `Length(min=4, max=150)` en el username, `Length(min=6)` en la contraseña, `EqualTo('password')` en la confirmación, verificación de unicidad personalizada `validate_username` |
+| `LoginForm` | `username`, `password`, `submit` | `DataRequired()` en ambos campos |
+| `ProdutoForm` | `nome`, `descricao`, `preco`, `imagem`, `submit_add`, `submit_update` | `Length(max=100)` en el nombre, `NumberRange(min=0.01)` en el precio, `FileAllowed(['jpg','png','jpeg'])` en la imagen |
+| `CheckoutForm` | `nomeCompleto`, `email`, `endereco`, `submit` | `Email()` en el correo, `Length(min=10)` en la dirección |
+
+---
+
+### 🔐 Rutas de Autenticación
+
+| Ruta | Métodos | Manejador | Comportamiento |
+|-------|---------|---------|----------|
+| `/register` | `GET`, `POST` | `register()` | Hashea la contraseña con `bcrypt.generate_password_hash`, crea un `User`, redirige a `/login` |
+| `/login` | `GET`, `POST` | `login()` | Busca `User` por username, verifica con `bcrypt.check_password_hash`, almacena `user_id`/`username` en la `session` |
+| `/logout` | `GET` | `logout()` | `login_required`; elimina `user_id`/`username` de la `session` |
+
+---
+
+### 🛍️ Rutas del Catálogo
+
+| Ruta | Métodos | Manejador | Comportamiento |
+|-------|---------|---------|----------|
+| `/` | `GET` | `index()` | Lista todos los `Produto` en la página principal |
+| `/adicionar_produto` | `GET`, `POST` | `add_produto()` | `login_required`; guarda la imagen subida vía `save_picture()`, crea un `Produto` |
+| `/editar_produto/<int:id>` | `GET`, `POST` | `update_produto()` | `login_required`; `Produto.query.get_or_404(id)`, reemplaza el archivo de imagen y elimina el anterior si se sube uno nuevo |
+| `/excluir_produto/<int:id>` | `GET` | `delete_produto()` | `login_required`; elimina el archivo de imagen del disco (a menos que sea `'default.jpg'`) y la fila `Produto` |
+
+---
+
+### 🛒 Rutas de Carrito & Checkout
+
+| Ruta | Métodos | Manejador | Comportamiento |
+|-------|---------|---------|----------|
+| `/add_carrinho/<int:id>` | `GET` | `add_to_cart()` | `login_required`; incrementa `quantidade` si ya existe un `CarrinhoItem` para ese usuario/producto, si no crea uno |
+| `/remover_carrinho/<int:id>` | `GET` | `remove_from_cart()` | `login_required`; elimina la fila `CarrinhoItem` correspondiente |
+| `/carrinho` | `GET` | `ver_carrinho()` | `login_required`; construye un dict de visualización con nombre, precio, cantidad y subtotal por artículo, más el total general |
+| `/checkout` | `GET`, `POST` | `checkout()` | `login_required`; redirige a `/` si el carrito está vacío; al enviar un `CheckoutForm` válido, limpia las filas `CarrinhoItem` del usuario y redirige a `/pedido_sucesso` |
+| `/pedido_sucesso` | `GET` | `pedido_sucesso()` | `login_required`; renderiza la página estática de confirmación |
+
+---
+
+### 🖼️ Plantillas & Recursos Estáticos
+
+| Recurso | Rol |
+|-------|------|
+| `templates/base.html` | Navbar Bootstrap con enlaces condicionales de login/carrito/logout, renderizado de mensajes flash, pie de página |
+| `templates/index.html` | Cuadrícula de tarjetas iterando `produtos`, con acciones de agregar al carrito / editar / eliminar por tarjeta |
+| `templates/carrinho.html` | Tabla de los artículos de `display_cart` con acción de eliminación y total calculado |
+| `templates/checkout.html` | Diseño de dos columnas: resumen del pedido a partir de `display_order` más el `CheckoutForm` |
+| `static/style.css` | Transformación de hover en tarjeta, precio verde en negrita, pie de página fijo |
+
+---
+
+</details>
+
+## 💼 Reglas de Negocio
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### 👤 Reglas de Cuenta
+
+| # | Regla | Aplicación |
+|---|------|-------------|
+| RN-01 | Los nombres de usuario deben ser únicos | `RegistrationForm.validate_username` consulta `User` antes de permitir el envío |
+| RN-02 | Los nombres de usuario deben tener entre 4 y 150 caracteres | `Length(min=4, max=150)` en `RegistrationForm.username` |
+| RN-03 | Las contraseñas deben tener al menos 6 caracteres | `Length(min=6)` en `RegistrationForm.password` |
+| RN-04 | La confirmación de contraseña debe coincidir con la contraseña | `EqualTo('password')` en `confirm_password` |
+| RN-05 | Las contraseñas nunca se almacenan en texto plano | `bcrypt.generate_password_hash` antes de `db.session.add(user)` |
+
+### 🛍️ Reglas del Catálogo
+
+| # | Regla | Aplicación |
+|---|------|-------------|
+| RN-06 | El precio de un producto debe ser estrictamente positivo | `NumberRange(min=0.01)` en `ProdutoForm.preco` |
+| RN-07 | Las imágenes subidas deben ser JPG, PNG o JPEG | `FileAllowed(['jpg', 'png', 'jpeg'])` en `ProdutoForm.imagem` |
+| RN-08 | Reemplazar la imagen de un producto elimina el archivo anterior, salvo que sea la predeterminada | `if produto.imagem and produto.imagem != 'default.jpg': os.remove(...)` en `update_produto()` |
+| RN-09 | Eliminar un producto elimina su archivo de imagen, salvo que sea la predeterminada | Misma verificación en `delete_produto()` |
+| RN-10 | Los nombres de archivo subidos son aleatorizados para evitar colisiones | `save_picture()` usa `secrets.token_hex(8)` más la extensión original |
+
+### 🛒 Reglas de Carrito & Checkout
+
+| # | Regla | Aplicación |
+|---|------|-------------|
+| RN-11 | Agregar un producto ya en el carrito incrementa la cantidad en vez de duplicar la fila | `add_to_cart()` verifica `CarrinhoItem.query.filter_by(user_id=..., produto_id=...).first()` |
+| RN-12 | El carrito está restringido al usuario autenticado | Toda consulta de carrito filtra por `session['user_id']` |
+| RN-13 | El checkout se bloquea cuando el carrito está vacío | `if not display_order: flash(...); return redirect(url_for('index'))` |
+| RN-14 | Un checkout exitoso vacía el carrito | `CarrinhoItem.query.filter_by(user_id=user_id).delete()` dentro de `checkout()` |
+| RN-15 | Eliminar un `User` propaga la eliminación de los artículos de su carrito | `cascade="all, delete-orphan"` en `User.carrinho_itens` |
+
+### 🔐 Reglas de Acceso
+
+| # | Regla | Aplicación |
+|---|------|-------------|
+| RN-16 | Toda ruta que modifica datos o expone datos personales requiere sesión activa | `@login_required` en `add_produto`, `update_produto`, `delete_produto`, `add_to_cart`, `remove_from_cart`, `ver_carrinho`, `checkout`, `pedido_sucesso`, `logout` |
+| RN-17 | Un visitante no autenticado es redirigido a `/login` con un mensaje flash | Cuerpo del decorador `login_required` |
+
+---
+
+</details>
+
+## ✅ Requisitos Funcionales
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+| ID | Requisito | Prioridad | Estado |
+|----|-------------|----------|--------|
+| **RF-01** | El sistema debe permitir que un visitante se registre con nombre de usuario y contraseña únicos | 🔴 Alta | ✅ Implementado |
+| **RF-02** | El sistema debe rechazar el registro si el nombre de usuario ya existe | 🔴 Alta | ✅ Implementado |
+| **RF-03** | El sistema debe permitir que un usuario registrado inicie sesión con nombre de usuario y contraseña | 🔴 Alta | ✅ Implementado |
+| **RF-04** | El sistema debe permitir que un usuario autenticado cierre sesión | 🟡 Media | ✅ Implementado |
+| **RF-05** | El sistema debe listar todos los productos en la página principal | 🔴 Alta | ✅ Implementado |
+| **RF-06** | El sistema debe permitir que un usuario autenticado agregue un nuevo producto con nombre, descripción, precio e imagen opcional | 🔴 Alta | ✅ Implementado |
+| **RF-07** | El sistema debe permitir que un usuario autenticado edite un producto existente | 🔴 Alta | ✅ Implementado |
+| **RF-08** | El sistema debe permitir que un usuario autenticado elimine un producto | 🟡 Media | ✅ Implementado |
+| **RF-09** | El sistema debe eliminar el archivo de imagen asociado cuando un producto se elimina o su imagen se reemplaza | 🟡 Media | ✅ Implementado |
+| **RF-10** | El sistema debe permitir que un usuario autenticado agregue un producto a su carrito | 🔴 Alta | ✅ Implementado |
+| **RF-11** | El sistema debe incrementar la cantidad cuando el mismo producto se agrega de nuevo | 🟡 Media | ✅ Implementado |
+| **RF-12** | El sistema debe permitir que un usuario elimine un artículo de su carrito | 🟡 Media | ✅ Implementado |
+| **RF-13** | El sistema debe mostrar el carrito con precio unitario, cantidad, subtotal y total general | 🔴 Alta | ✅ Implementado |
+| **RF-14** | El sistema debe bloquear el checkout cuando el carrito está vacío | 🟡 Media | ✅ Implementado |
+| **RF-15** | El sistema debe recopilar nombre completo, correo electrónico y dirección en el checkout | 🔴 Alta | ✅ Implementado |
+| **RF-16** | El sistema debe validar el formato del correo electrónico en el checkout | 🟡 Media | ✅ Implementado |
+| **RF-17** | El sistema debe vaciar el carrito después de un checkout exitoso | 🔴 Alta | ✅ Implementado |
+| **RF-18** | El sistema debe mostrar una página de confirmación de pedido después del checkout | 🟢 Baja | ✅ Implementado |
+| **RF-19** | El sistema debe mostrar retroalimentación flash para cada acción de crear/editar/eliminar/login/logout | 🟢 Baja | ✅ Implementado |
+| **RF-20** | El sistema debe proteger cada ruta que modifica estado mediante autenticación | 🔴 Alta | ✅ Implementado |
+| **RF-21** | El sistema debe persistir el envío del checkout (nombre, correo) más allá de un registro en consola | 🟡 Media | ⬜ Planificado |
+| **RF-22** | El sistema debe permitir que un usuario cambie la cantidad de un artículo del carrito directamente | 🟢 Baja | ⬜ Planificado |
+
+---
+
+</details>
+
+## ⚡ Requisitos No Funcionales
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+| ID | Categoría | Requisito | Objetivo |
+|----|----------|-------------|--------|
+| **RNF-01** | 🔐 Seguridad | Las contraseñas nunca deben almacenarse ni registrarse en texto plano | 100% de las contraseñas almacenadas son hashes bcrypt |
+| **RNF-02** | 🔐 Seguridad | Cada envío de formulario debe llevar un token CSRF | Garantizado vía `hidden_tag()` de `Flask-WTF` en los 4 formularios |
+| **RNF-03** | 📦 Seguridad de Carga | Los archivos subidos deben tener un límite de tamaño | `MAX_CONTENT_LENGTH = 16 * 1024 * 1024` (16 MB) |
+| **RNF-04** | 📦 Seguridad de Carga | Las imágenes de producto subidas deben restringirse a tipos seguros | `FileAllowed(['jpg', 'png', 'jpeg'])` |
+| **RNF-05** | 🗂️ Integridad de Datos | Toda fila de carrito debe referenciar un usuario y producto válidos | `ForeignKey('user.id')`, `ForeignKey('produto.id')` con `nullable=False` |
+| **RNF-06** | ⚡ Rendimiento | La agregación del carrito debe evitar consultas N+1 | `options(db.joinedload(CarrinhoItem.produto))` en `ver_carrinho()` y `get_cart_details()` |
+| **RNF-07** | 🎨 Usabilidad | La interfaz debe renderizar correctamente en móvil y escritorio | Clases de cuadrícula responsiva de Bootstrap 5 (`col-md-4`, `row g-5`, etc.) |
+| **RNF-08** | 🎨 Usabilidad | Toda acción destructiva debe pedir confirmación | `onclick="return confirm(...)"` en el enlace de eliminar producto |
+| **RNF-09** | 🌍 Internacionalización | Los textos e mensajes flash están en un único idioma | Todas las cadenas actualmente fijas en portugués de Brasil |
+| **RNF-10** | 🧱 Mantenibilidad | El chrome de UI compartido debe vivir en un solo lugar | Herencia de `base.html` en las 8 plantillas de página |
+| **RNF-11** | 🧱 Mantenibilidad | Las instancias ORM deben definirse una vez para evitar importaciones circulares | Centralizado en `extensions.py` |
+| **RNF-12** | 🧪 Testabilidad | Los flujos principales deben estar cubiertos por una suite de pruebas automatizada | `test_app.py`, 7 pruebas sobre el cliente de prueba de Flask |
+| **RNF-13** | 🔧 Configurabilidad | La ubicación de la base de datos y la carpeta de carga deben ser resolubles relativamente a la app | `app.instance_path`, `app.root_path` usados en lugar de rutas absolutas fijas |
+| **RNF-14** | 💾 Portabilidad | El motor de base de datos no debe requerir un servidor externo | Archivo SQLite en `instance/lojinha.db` |
+| **RNF-15** | ♿ Accesibilidad | Los campos de formulario deben llevar elementos `<label>` asociados | `form.<campo>.label(...)` renderizado antes de cada input en todas las plantillas de formulario |
+
+---
+
+</details>
+
+## 🗄️ Modelo de Datos
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Diagrama Entidad-Relación
+
+```mermaid
+erDiagram
+    USER ||--o{ CARRINHO_ITEM : "posee"
+    PRODUTO ||--o{ CARRINHO_ITEM : "referenciado por"
+
+    USER {
+        int id PK
+        string username "único, 4-150 caracteres"
+        string password "hash bcrypt"
+    }
+
+    PRODUTO {
+        int id PK
+        string nome "máx 100 caracteres"
+        text descricao "opcional"
+        float preco "debe ser > 0"
+        string imagem "predeterminado 'default.jpg'"
+    }
+
+    CARRINHO_ITEM {
+        int id PK
+        int quantidade "predeterminado 1"
+        int user_id FK "referencia USER.id"
+        int produto_id FK "referencia PRODUTO.id"
+    }
+```
+
+### Detalle del Esquema
+
+| Tabla | Columna | Tipo | Restricciones |
+|-------|--------|------|-------------|
+| `user` | `id` | `Integer` | Clave primaria |
+| `user` | `username` | `String(150)` | Único, no nulo |
+| `user` | `password` | `String(150)` | No nulo, hash bcrypt |
+| `produto` | `id` | `Integer` | Clave primaria |
+| `produto` | `nome` | `String(100)` | No nulo |
+| `produto` | `descricao` | `Text` | Opcional |
+| `produto` | `preco` | `Float` | No nulo |
+| `produto` | `imagem` | `String(300)` | Opcional, predeterminado `'default.jpg'` |
+| `carrinho_item` | `id` | `Integer` | Clave primaria |
+| `carrinho_item` | `quantidade` | `Integer` | No nulo, predeterminado `1` |
+| `carrinho_item` | `user_id` | `Integer` | Clave foránea → `user.id`, no nulo |
+| `carrinho_item` | `produto_id` | `Integer` | Clave foránea → `produto.id`, no nulo |
+
+### Ubicaciones de Almacenamiento
+
+| Aspecto | Ubicación | Notas |
+|---------|----------|-------|
+| Datos relacionales | `instance/lojinha.db` | Creado por `db.create_all()` en la primera ejecución, dentro del contexto de la aplicación Flask |
+| Imágenes subidas | `static/uploads/<16-hex>.<ext>` | Nombre de archivo generado por `secrets.token_hex(8)` en `save_picture()` |
+| Archivo de base de datos suelto | `produtos.db` (raíz del repositorio) | Presente en el repositorio, pero no referenciado por `SQLALCHEMY_DATABASE_URI`, parece ser un resto de una configuración anterior |
+
+---
+
+</details>
+
+## 🔄 Flujos del Sistema
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Flujo de Registro & Login
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant U as 👤 Visitante
+    participant F as 📝 RegistrationForm / LoginForm
+    participant A as 🏛️ app.py
+    participant B as 🔐 Bcrypt
+    participant D as 🗄️ SQLite (User)
+
+    U->>F: Envía username + contraseña
+    F->>F: Valida longitud, confirmación, unicidad
+    alt Registro
+        F->>A: register()
+        A->>B: generate_password_hash(contraseña)
+        B-->>A: contraseña con hash
+        A->>D: INSERT INTO user
+        A-->>U: flash "Conta criada" + redirige a /login
+    else Login
+        F->>A: login()
+        A->>D: SELECT * FROM user WHERE username = ?
+        D-->>A: fila User
+        A->>B: check_password_hash(user.password, entrada)
+        alt Coincide
+            A->>A: session['user_id'] = user.id
+            A-->>U: flash "Bem-vindo" + redirige a /
+        else No coincide
+            A-->>U: flash "Login falhou"
+        end
+    end
+```
+
+### Flujo de Agregar al Carrito
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant U as 👤 Usuario
+    participant A as 🏛️ add_to_cart()
+    participant D as 🗄️ SQLite (CarrinhoItem)
+
+    U->>A: GET /add_carrinho/<id>
+    A->>D: SELECT Produto WHERE id = ? (get_or_404)
+    A->>D: SELECT CarrinhoItem WHERE user_id, produto_id
+    alt Artículo ya en el carrito
+        D-->>A: fila existente
+        A->>A: item.quantidade += 1
+    else Artículo aún no en el carrito
+        A->>D: INSERT CarrinhoItem(quantidade=1)
+    end
+    A->>D: db.session.commit()
+    A-->>U: flash "adicionado ao carrinho" + redirige a /
+```
+
+### Flujo de Checkout
+
+```mermaid
+flowchart TD
+    START([POST /checkout]) --> EMPTY{Carrito vacío?}
+    EMPTY -- Sí --> WARN[flash: carrito vacío]
+    WARN --> HOME([redirige a index])
+    EMPTY -- No --> VALID{CheckoutForm válido?}
+    VALID -- No --> SHOW[Renderiza checkout.html\ncon errores de campo]
+    VALID -- Sí --> LOG[Imprime pedido en consola]
+    LOG --> CLEAR[DELETE CarrinhoItem WHERE user_id]
+    CLEAR --> COMMIT[db.session.commit]
+    COMMIT --> DONE([redirige a pedido_sucesso])
+
+    style START fill:#1565C0,color:#fff
+    style DONE fill:#2E7D32,color:#fff
+    style WARN fill:#BF360C,color:#fff
+    style HOME fill:#B71C1C,color:#fff
+```
+
+### Ciclo de Vida del Producto (Máquina de Estados)
+
+```mermaid
+stateDiagram-v2
+    [*] --> NoCreado
+    NoCreado --> Listado: add_produto() confirma\ncon o sin imagen
+    Listado --> Listado: update_produto()\n(campos actualizados, imagen opcionalmente reemplazada)
+    Listado --> EnCarrito: add_to_cart() crea\nun CarrinhoItem que lo referencia
+    EnCarrito --> Listado: remove_from_cart()\no checkout() vacía el carrito
+    Listado --> [*]: delete_produto()\nfila y archivo de imagen eliminados
+    EnCarrito --> [*]: delete_produto()\n(riesgo de CarrinhoItem huérfano, ver Limitaciones Conocidas)
+```
+
+---
+
+</details>
+
+## 🔐 Seguridad
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Controles Implementados
+
+| Control | Implementación | Efecto |
+|---------|---------------|--------|
+| 🔐 **Hash de contraseña** | `flask_bcrypt.Bcrypt` en `extensions.py`, usado por `register()`/`login()` | Las contraseñas en texto plano nunca se persisten |
+| 🛡️ **Protección CSRF** | `hidden_tag()` de `Flask-WTF` renderizado en cada plantilla de formulario | La falsificación de solicitud entre sitios se rechaza sin un token válido |
+| 🚦 **Autorización a nivel de ruta** | Decorador `login_required` en 9 rutas | Las solicitudes no autenticadas a rutas protegidas se redirigen, no se ejecutan |
+| 🧾 **Validación en el servidor** | Validadores WTForms (`DataRequired`, `Length`, `Email`, `EqualTo`, `NumberRange`, `FileAllowed`) | Las entradas mal formadas se rechazan antes de llegar a la base de datos |
+| 📦 **Límite de tamaño de carga** | `MAX_CONTENT_LENGTH = 16 * 1024 * 1024` | Las cargas demasiado grandes son rechazadas por Flask antes de llegar a la vista |
+| 🖼️ **Aleatorización de nombre de archivo** | `save_picture()` usa `secrets.token_hex(8)` | Los nombres de archivo proporcionados por el usuario nunca llegan directamente al sistema de archivos, mitigando path traversal |
+| 🗂️ **Consultas restringidas** | Toda consulta de carrito filtra por `session['user_id']` | Un usuario no puede leer ni modificar el carrito de otro usuario a través de las rutas expuestas |
+
+### Limitaciones de Seguridad Conocidas
+
+> [!WARNING]
+> Las siguientes limitaciones son inherentes al diseño actual y deben entenderse antes de cualquier uso en producción.
+
+| Limitación | Riesgo | Camino de mitigación |
+|------------|------|-----------------|
+| 🔑 **`SECRET_KEY` fija en el código** | `app.config['SECRET_KEY'] = 'sua_chave_secreta_muito_segura'` está confirmada en `app.py` | Cargar la clave desde una variable de entorno, nunca confirmarla en el repositorio |
+| 🐛 **`debug=True` en el punto de entrada** | `app.run(debug=True)` expone el depurador interactivo de Werkzeug si es accesible desde fuera de localhost | Deshabilitar el modo debug fuera del desarrollo local, usar una bandera de entorno |
+| 🧍 **Sin verificación de propiedad en los productos** | Cualquier usuario autenticado puede editar o eliminar cualquier producto, no solo los propios | Agregar un `owner_id` en `Produto` y verificarlo en `update_produto`/`delete_produto` |
+| 🗂️ **Sin limitación de tasa en login/registro** | Los intentos de fuerza bruta contra credenciales no están limitados | Agregar `Flask-Limiter` o un límite de tasa en el proxy inverso |
+| 📝 **Los datos del pedido solo se imprimen en consola** | `checkout()` usa `print(...)`, por lo que el nombre/correo enviados no se almacenan de forma duradera ni auditable | Persistir los pedidos en un modelo `Pedido` dedicado |
+| 🖼️ **Extensión del archivo confiada a la indicación MIME del cliente** | `FileAllowed` verifica la extensión, no los bytes reales del contenido del archivo | Validar magic bytes / recodificar la imagen en el servidor |
+| 🍪 **Cookie de sesión con valores predeterminados de Flask** | Ninguna configuración explícita de `SESSION_COOKIE_SECURE` / `SESSION_COOKIE_HTTPONLY` en `app.py` | Definir esas banderas explícitamente, especialmente antes de desplegar sobre HTTPS |
+
+---
+
+</details>
+
+## 🚀 Instalación & Ejecución
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Prerrequisitos
+
+```bash
+# Python 3.x con pip
+python --version
+pip --version
+```
+
+### Build
+
+```bash
+# Clone o ingrese al directorio del proyecto
+cd lojinha_local
+
+# (Recomendado) cree y active un entorno virtual
+python -m venv venv
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# Instale las dependencias
+pip install -r requirements.txt
+```
+
+### Ejecución
+
+```bash
+# Ejecute el servidor de desarrollo (crea instance/lojinha.db en la primera ejecución)
+python app.py
+# Flask inicia en modo debug en http://127.0.0.1:5000/
+```
+
+**Uso dentro de la aplicación**
+
+1. Abra `http://127.0.0.1:5000/` — el catálogo se carga vacío en la primera ejecución.
+2. Haga clic en **Cadastro** y cree una cuenta (username de 4+ caracteres, contraseña de 6+ caracteres).
+3. Inicie sesión, luego haga clic en **Adicionar Produto** para crear el primer producto (nombre, precio, imagen opcional).
+4. Desde la página principal, use **Adicionar ao Carrinho** en cualquier tarjeta de producto.
+5. Abra **Carrinho** para revisar cantidades y el total, luego **Finalizar Compra**.
+6. Complete nombre, correo y dirección, envíe, y llegue a la página de confirmación del pedido.
+
+### Scripts & Objetivos
+
+| Comando | Propósito |
+|---------|---------|
+| `python app.py` | Ejecuta el servidor de desarrollo, con `db.create_all()` ejecutado al iniciar |
+| `pip install -r requirements.txt` | Instala Flask, Flask-SQLAlchemy, Flask-Bcrypt, Flask-WTF, pytest, email_validator |
+| `pytest` | Ejecuta la suite de pruebas automatizada (`test_app.py`) |
+| `pytest -v` | Ejecuta las pruebas con salida detallada por prueba |
+
+### Referencia de Configuración
+
+| Configuración | Valor | Declarado en |
+|---------|-------|-------------|
+| `SECRET_KEY` | cadena fija en el código | `app.py` |
+| `SQLALCHEMY_DATABASE_URI` | `sqlite:///lojinha.db` | `app.py` (resuelto contra `instance_path`) |
+| `UPLOAD_FOLDER` | `static/uploads/` | `app.py` |
+| `MAX_CONTENT_LENGTH` | `16 * 1024 * 1024` (16 MB) | `app.py` |
+| `debug` | `True` | `app.run(debug=True)` en `app.py` |
+
+---
+
+</details>
+
+## 🧪 Pruebas Automatizadas
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Arquitectura de Pruebas
+
+```mermaid
+flowchart TB
+    subgraph FIXTURE["🧰 fixture pytest — client()"]
+        F1["SQLite en memoria\nsqlite:///:memory:"]
+        F2["CSRF deshabilitado\nWTF_CSRF_ENABLED = False"]
+        F3["db.create_all() / db.drop_all()\nalrededor de cada prueba"]
+    end
+    subgraph TESTS["🧪 test_app.py — 7 pruebas"]
+        T1["test_index_page"]
+        T2["test_login_page"]
+        T3["test_register_page"]
+        T4["test_user_registration"]
+        T5["test_user_login_logout"]
+        T6["test_add_produto_requires_login"]
+        T7["test_add_produto"]
+        T8["test_add_to_cart_database"]
+    end
+
+    FIXTURE --> TESTS
+
+    style FIXTURE fill:#1e3a5f,color:#fff
+    style TESTS fill:#1a3a1a,color:#fff
+```
+
+| Prueba | Verifica |
+|------|----------|
+| `test_index_page` | `/` retorna 200 y renderiza "Nossos Produtos" |
+| `test_login_page` | `/login` retorna 200 y renderiza "Login" |
+| `test_register_page` | `/register` retorna 200 y renderiza "Cadastro" |
+| `test_user_registration` | El registro es exitoso y la fila `User` existe después |
+| `test_user_login_logout` | El login establece `session['user_id']`, el logout lo limpia |
+| `test_add_produto_requires_login` | `GET /adicionar_produto` sin autenticación redirige al flash de login |
+| `test_add_produto` | La creación de producto autenticada persiste un `Produto` con el precio correcto |
+| `test_add_to_cart_database` | `add_to_cart` persiste un `CarrinhoItem` con `quantidade == 1` |
+
+### Ejecutando las Pruebas
+
+```bash
+# Ejecuta la suite completa
+pytest
+
+# Ejecuta con salida detallada
+pytest -v
+
+# Ejecuta una sola prueba
+pytest test_app.py::test_user_login_logout
+```
+
+### Lista de Verificación de Aceptación Manual
+
+| # | Escenario | Resultado esperado |
+|---|----------|------------------|
+| 1 | Registrarse con un nombre de usuario de menos de 4 caracteres | El formulario se vuelve a renderizar con un error de validación de longitud |
+| 2 | Registrarse con un nombre de usuario duplicado | El formulario se vuelve a renderizar con "Esse nome de usuário já existe" |
+| 3 | Iniciar sesión con contraseña incorrecta | Se muestra el flash "Login falhou" |
+| 4 | Agregar un producto sin imagen | El producto se lista usando `default.jpg` |
+| 5 | Editar un producto y subir una nueva imagen | El archivo de imagen antiguo se elimina de `static/uploads/` |
+| 6 | Agregar el mismo producto al carrito dos veces | La cantidad se convierte en 2, sin fila duplicada |
+| 7 | Visitar `/checkout` con el carrito vacío | Redirigido a `/` con un flash de advertencia |
+| 8 | Completar el checkout | El carrito se vacía y se muestra la página de confirmación |
+| 9 | Visitar cualquier ruta protegida sin sesión | Redirigido a `/login` con un flash de advertencia |
+
+---
+
+</details>
+
+## 📊 Métricas & Monitoreo
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+### Métricas del Código
+
+| Métrica | Valor |
+|--------|-------|
+| Archivos fuente Python | 4 (`app.py`, `extensions.py`, `models.py`, `forms.py`) + `test_app.py` |
+| Rutas Flask | 15 |
+| Modelos SQLAlchemy | 3 (`User`, `Produto`, `CarrinhoItem`) |
+| Clases de formulario WTForms | 4 |
+| Plantillas Jinja2 | 9 |
+| Pruebas pytest | 8 (7 funciones `test_*` nombradas más 1 helper) |
+| Imágenes de ejemplo subidas presentes | 5 archivos en `static/uploads/` |
+| Imágenes de referencia (no usadas por la app) | 4 archivos en `images/` |
+
+### Señales en Tiempo de Ejecución
+
+| Señal | Origen | Dónde observar |
+|--------|--------|-------------------|
+| Mensajes flash | Llamadas `flash(message, category)` a lo largo de `app.py` | Renderizadas dentro del bloque `get_flashed_messages` de `base.html` |
+| Estado de sesión | `session['user_id']`, `session['username']` | Cookie de sesión del lado del servidor |
+| Actividad SQL | Llamadas ORM de SQLAlchemy | Habilite `app.config['SQLALCHEMY_ECHO'] = True` para registrar SQL en stdout |
+| Ciclo de solicitud/respuesta | Registro del servidor de desarrollo integrado de Flask | Salida de consola al ejecutar `python app.py` |
+
+### Comandos Útiles
+
+```bash
+# Inspecciona el esquema de SQLite directamente
+sqlite3 instance/lojinha.db ".schema"
+
+# Cuenta filas por tabla
+sqlite3 instance/lojinha.db "SELECT COUNT(*) FROM user;"
+sqlite3 instance/lojinha.db "SELECT COUNT(*) FROM produto;"
+sqlite3 instance/lojinha.db "SELECT COUNT(*) FROM carrinho_item;"
+
+# Lista las imágenes de producto subidas
+ls static/uploads/
+
+# Ejecuta la suite de pruebas con salida detallada
+pytest -v
+```
+
+### Códigos de Estado Estandarizados
+
+| Código | Significado | Dónde aparece |
+|------|---------|-------------------|
+| `200` | Renderizado de página exitoso | Toda ruta `GET` en caso de éxito |
+| `302` | Redirección | Después de todo `POST` exitoso (`register`, `login`, `add_produto`, `checkout`, ...) |
+| `404` | No encontrado | `get_or_404()` en `update_produto` y `delete_produto` |
+| `413` | Payload demasiado grande | Carga que excede `MAX_CONTENT_LENGTH` (16 MB) |
+
+---
+
+</details>
+
+## ⚠️ Limitaciones Conocidas
+
+<details>
+<summary>▶️ <strong>Haga clic para expandir / contraer esta sección</strong></summary>
+
+> [!IMPORTANT]
+> Este proyecto es una aplicación de aprendizaje/demostración. Varios atajos aquí documentados son adecuados para una demostración local, pero necesitarían abordarse antes de cualquier despliegue real.
+
+| Categoría | Problema | Estado |
+|----------|-------|--------|
+| 🎨 **Enlace de hoja de estilos roto** | `base.html` solicita `static/css/style.css`, pero el archivo está realmente en `static/style.css` | ⚠️ Abierto |
+| 🔑 **Clave secreta fija en el código** | `SECRET_KEY` es una cadena literal confirmada en `app.py` | ⚠️ Abierto |
+| 🐛 **Modo debug en el punto de entrada de ejecución** | `app.run(debug=True)` es incondicional | ⚠️ Abierto |
+| 📝 **Datos de checkout no persistidos** | `checkout()` solo hace `print()` del nombre/correo enviados, no existe tabla `Pedido`/pedido | ⚠️ Abierto |
+| 🧍 **Sin verificación de propiedad de producto** | Cualquier usuario con sesión puede editar o eliminar cualquier producto | ⚠️ Abierto |
+| 🗑️ **Posibles filas de carrito huérfanas** | Eliminar un `Produto` no limpia las filas `CarrinhoItem` que lo referencian | ⚠️ Abierto |
+| 🗄️ **Archivo `produtos.db` suelto** | Un archivo SQLite no utilizado se encuentra en la raíz del repositorio, sin relación con el `instance/lojinha.db` configurado | ⚠️ Abierto |
+| 🌍 **Idioma único fijo en el código** | Todo el texto de la interfaz y mensajes flash están en portugués fijo, sin capa de i18n | ➕ Intencional |
+| 🧪 **Sin cobertura para las rutas de editar/eliminar** | `test_app.py` cubre registro, login, agregar producto y agregar al carrito, pero no `update_produto`, `delete_produto`, `remove_from_cart` ni `checkout` | ⚠️ Abierto |
+| 🔢 **Sin edición de cantidad en la UI del carrito** | `carrinho.html` solo puede eliminar un artículo, no cambiar su cantidad directamente | ➕ Intencional |
+| 🔒 **Sin servidor WSGI de producción configurado** | Solo está presente el servidor de desarrollo de Flask (`app.run`), sin configuración de gunicorn/waitress | ⚠️ Abierto |
+
+> [!TIP]
+> La corrección de mayor valor es persistir los envíos de checkout en un modelo `Pedido` real, esto desbloquearía de inmediato el historial de pedidos, recibos, y una base para las funcionalidades actualmente ausentes de edición de cantidad y propiedad de producto.
+
+</details>
 
 ---
 
 <div align="center">
 
-*Hecho con 🛒 y Flask*
+---
+
+### 🛒 Lojinha Local
+
+*Tienda pequeña, Flask directo al grano.*
+
+[![Python](https://img.shields.io/badge/Hecho%20con-Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Powered%20by-Flask-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![SQLite](https://img.shields.io/badge/Datos-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Tests](https://img.shields.io/badge/Probado%20con-pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)](https://pytest.org/)
+
+<br/>
+
+```
+"Una tienda es solo un catálogo, un carrito y alguien dispuesto a pagar.
+ Todo lo demás es acabado."
+```
 
 </div>
